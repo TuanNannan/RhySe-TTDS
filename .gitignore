@@ -1,0 +1,77 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Packages
+build/
+dist/
+*.egg-info/
+pip-wheel-metadata/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+.env
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Jupyter
+.ipynb_checkpoints
+
+# Logs and runtime files
+logs/
+*.log
+runs/
+*.sqlite3
+*.db
+
+# Model checkpoints and large binaries
+ckpts/
+*.ckpt
+*.pt
+*.pth
+*.h5
+*.model
+*.safetensors
+
+# Data and manifests (adjust if you want to keep small manifests)
+data/
+data/TORGO/
+# 保留 data 目录下的小脚本和划分清单（不包括大音频文件）
+!data/
+!data/prepare_torgo.py
+!data/prepare_torgo_dataset.py
+!data/torgo_manifest_final.csv
+!data/**/metadata.csv
+!data/**/duration.json
+!data/**/vocab.txt
+ASR/
+
+# Audio and large media
+*.wav
+*.flac
+*.mp3
+
+# Experiment outputs
+exp/
+exp/**/generated_wavs/
+exp/**/generated_*
+
+# Test and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+PUBLISHING.md
+
+# Misc
+.DS_Store
+*.tmp
+*.bak
+*~
