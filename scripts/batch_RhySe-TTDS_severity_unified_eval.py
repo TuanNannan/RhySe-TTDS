@@ -132,7 +132,7 @@ class UnifiedSeverityF5TTSGenerator(DirectF5TTSGenerator):
         self.sf.write(str(output_wav), audio_segment, final_sample_rate)
 
         if bool(self.args.remove_silence):
-            from f5_tts.infer.utils_infer import remove_silence_for_generated_wav
+            from rhyse_ttds.infer.utils_infer import remove_silence_for_generated_wav
             remove_silence_for_generated_wav(str(output_wav))
 
         return float(elapsed)

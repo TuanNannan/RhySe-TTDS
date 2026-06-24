@@ -3,9 +3,9 @@ requires = ["setuptools >= 61.0", "setuptools-scm>=8.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "f5-tts"
+name = "RhySe-TTDS"
 version = "1.1.20"
-description = "F5-TTS: A Fairytaler that Fakes Fluent and Faithful Speech with Flow Matching"
+description = "RhySe-TTDS: Rhythm and Speech Dysarthria TTS (migration of f5-tts)"
 readme = "README.md"
 license = {text = "MIT License"}
 classifiers = [
@@ -55,10 +55,10 @@ eval = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/SWivid/F5-TTS"
+Homepage = "https://github.com/SWivid/RhySe-TTDS"
 
 [project.scripts]
-"f5-tts_infer-cli" = "f5_tts.infer.infer_cli:main"
-"f5-tts_infer-gradio" = "f5_tts.infer.infer_gradio:main"
-"f5-tts_finetune-cli" = "f5_tts.train.finetune_cli:main"
-"f5-tts_finetune-gradio" = "f5_tts.train.finetune_gradio:main"
+"rhyse-ttds_infer-cli" = "rhyse_ttds.infer.infer_cli:main"
+"rhyse-ttds_infer-gradio" = "rhyse_ttds.infer.infer_gradio:main"
+"rhyse-ttds_finetune-cli" = "rhyse_ttds.train.finetune_cli:main"
+"rhyse-ttds_finetune-gradio" = "rhyse_ttds.train.finetune_gradio:main"

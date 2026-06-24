@@ -564,7 +564,7 @@ class DirectF5TTSGenerator:
             import soundfile as sf  # noqa: F401
             from hydra.utils import get_class  # noqa: F401
             from omegaconf import OmegaConf  # noqa: F401
-            from f5_tts.infer.utils_infer import infer_process, load_model, load_vocoder, preprocess_ref_audio_text  # noqa: F401
+            from rhyse_ttds.infer.utils_infer import infer_process, load_model, load_vocoder, preprocess_ref_audio_text  # noqa: F401
         except Exception as e:
             raise RuntimeError(
                 "Failed to import F5-TTS direct inference modules. Run inside your F5-TTS environment, "
@@ -576,7 +576,7 @@ class DirectF5TTSGenerator:
         import soundfile as sf
         from hydra.utils import get_class
         from omegaconf import OmegaConf
-        from f5_tts.infer.utils_infer import infer_process, load_model, load_vocoder, preprocess_ref_audio_text
+        from rhyse_ttds.infer.utils_infer import infer_process, load_model, load_vocoder, preprocess_ref_audio_text
 
         self.torch = torch
         self.sf = sf
@@ -589,7 +589,7 @@ class DirectF5TTSGenerator:
 
         self.model_cfg_path = self.resolve_model_cfg(args.model_name, args.model_cfg)
         self.model_cfg = self.OmegaConf.load(str(self.model_cfg_path))
-        self.model_cls = self.get_class(f"f5_tts.model.{self.model_cfg.model.backbone}")
+        self.model_cls = self.get_class(f"rhyse_ttds.model.{self.model_cfg.model.backbone}")
         self.model_arc = self.model_cfg.model.arch
 
         self.vocoder_name = args.vocoder_name
@@ -608,12 +608,12 @@ class DirectF5TTSGenerator:
     def resolve_model_cfg(self, model: str, model_cfg_arg: str = "") -> Path:
         if model_cfg_arg:
             return ensure_file(model_cfg_arg, "model_cfg")
-        p = self.project_root / "src" / "f5_tts" / "configs" / f"{model}.yaml"
+        p = self.project_root / "src" / "rhyse_ttds" / "configs" / f"{model}.yaml"
         if p.exists():
             return p.resolve()
         try:
             from importlib.resources import files
-            res = files("f5_tts").joinpath(f"configs/{model}.yaml")
+            res = files("rhyse_ttds").joinpath(f"configs/{model}.yaml")
             return Path(str(res))
         except Exception as e:
             raise FileNotFoundError(f"Cannot locate config for model={model}. Tried {p}. Error: {e}")
@@ -700,7 +700,7 @@ class DirectF5TTSGenerator:
         self.sf.write(str(output_wav), audio_segment, final_sample_rate)
 
         if bool(self.args.remove_silence):
-            from f5_tts.infer.utils_infer import remove_silence_for_generated_wav
+            from rhyse_ttds.infer.utils_infer import remove_silence_for_generated_wav
             remove_silence_for_generated_wav(str(output_wav))
         return float(elapsed)
 

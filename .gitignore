@@ -33,7 +33,8 @@ runs/
 *.db
 
 # Model checkpoints and large binaries
-ckpts/
+ckpts/*
+!ckpts/.gitkeep
 *.ckpt
 *.pt
 *.pth
@@ -52,7 +53,8 @@ data/TORGO/
 !data/**/metadata.csv
 !data/**/duration.json
 !data/**/vocab.txt
-ASR/
+ASR/*
+!ASR/.gitkeep
 
 # Audio and large media
 *.wav

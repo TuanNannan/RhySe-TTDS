@@ -115,7 +115,7 @@ CMD=(
   --multi_gpu
   --num_processes "${NUM_PROCESSES}"
   --mixed_precision="${MIXED_PRECISION}"
-  "src/f5_tts/train/finetune_cli.py"
+  "src/rhyse_ttds/train/finetune_cli.py"
   --exp_name "${EXP_NAME}"
   --learning_rate "${LEARNING_RATE}"
   --batch_size_per_gpu "${BATCH_SIZE_PER_GPU}"
