@@ -452,10 +452,7 @@ Evaluation is performed in a LOSO protocol: for each test speaker, the ASR model
 
 - **TORGO data are not redistributed.** Users must obtain the dataset from the [official source](https://www.cs.toronto.edu/~complingweb/data/TORGO/torgo.html) and prepare it using the provided scripts.
 - **Large files are excluded from the repository.** The `ckpts/` and `ASR/` directories contain only `.gitkeep` placeholders. Fine-tuned checkpoints must be trained or downloaded separately. The ASR pipeline scripts and pretrained models must be set up locally.
-- **Generated outputs are local only.** The `exp/` directory (generated audio, evaluation CSVs) is created at runtime by the generation scripts and is not tracked by Git.
-- **`runtime/triton_trtllm/`** contains optional upstream F5-TTS Triton/TensorRT-LLM deployment templates. These retain the `f5_tts` naming convention for compatibility with the upstream deployment infrastructure. They are **not required** for reproducing the paper experiments.
-- **The internal Python package name is `rhyse_ttds`** (import as `import rhyse_ttds`).
-- **F5-TTS is retained as the baseline name** and acknowledged as the base code/model throughout this repository.
+
 
 ---
 
